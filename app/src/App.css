@@ -7,6 +7,38 @@
   pointer-events: none;
 }
 
+.Main-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.Text-color {
+  color: #61dafb;
+  font-size: 6rem;
+  margin: 5% 0 2% 0;
+}
+
+.Button-row {
+  display: flex;
+  justify-content: center;
+
+}
+
+.Button {
+  background:#282c34;
+  color:  #61dafb;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: .1rem .1rem .1rem rgb(28, 40, 70);
+  width: 12rem;
+  height: 4rem;
+  border-radius: .6rem;
+  cursor: pointer;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
