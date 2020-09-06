@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import Counter, { CounterProps } from './Counter';
+import Counter, { CounterProps }  from './Counter';
+
 
 function App() {
 

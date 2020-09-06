@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState } from 'react';
+import './index.css';
 
 
 export interface CounterProps {
@@ -8,25 +10,49 @@ export interface CounterProps {
 
 const Counter: React.SFC<CounterProps> = (props) => {
 
-  const displayValue: number = props.value ? props.value : 0;
-  const displayText: string = props.label + ": " + displayValue;
+  const defaultValue: number = props.value ? props.value : 0;
+  let [count, setCount] = useState(defaultValue);
+  const displayText: string = props.label + ": " + count;
 
-  function button() {
-
-    let buttonValue = 0;
-    buttonValue++;
-    console.log(buttonValue);
-
+  if (count >= 0 && count < 10) {
+    document.body.style.backgroundColor = "#20232a"
   };
+
+
+  const incrementCount = () => {
+    setCount(count += 1);
+    console.log(count)
+
+    if (count === 10) {
+      console.log("Add Milestone: " + count);
+      document.body.style.backgroundColor = "#3e434e"
+    };
+  
+  }
+
+  const decrementCount = () => {
+    setCount(count -= 1);
+
+    if (count === -1) {
+      console.log("Sub Milestone: " + count);
+      document.body.style.backgroundColor = "#121418"
+    };
+    
+  }
+
+  
 
   return <div>
     <div className='Text-color'>
       {displayText}
     </div>
     <div className='Button-row'>
-      <button onClick={button} className="Button">Increment</button>
+      <button onClick={decrementCount} className="Button">SUB</button>
+      <button onClick={incrementCount} className="Button">ADD</button>
+
     </div>
   </div>
 }
 
 export default Counter;
+
