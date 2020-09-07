@@ -18,38 +18,34 @@ const Counter: React.SFC<CounterProps> = (props) => {
     document.body.style.backgroundColor = "#20232a"
   };
 
+  if (count <= -1) {
+    document.body.style.backgroundColor = "#14161b"
+  };
 
-  const incrementCount = () => {
-    setCount(count += 1);
-    console.log(count)
+  if (count > 10) {
+    document.body.style.backgroundColor = "#393e4b"
+  };
 
-    if (count === 10) {
-      console.log("Add Milestone: " + count);
-      document.body.style.backgroundColor = "#3e434e"
-    };
-  
+
+  const changeCount = (x: number) => {
+    setCount(count + x);
   }
 
-  const decrementCount = () => {
-    setCount(count -= 1);
+  // const incrementCount = () => {
+  //   changeCount(1);
+  // }
 
-    if (count === -1) {
-      console.log("Sub Milestone: " + count);
-      document.body.style.backgroundColor = "#121418"
-    };
-    
-  }
-
-  
+  // const decrementCount = () => {
+  //   changeCount(-1);
+  // }
 
   return <div>
     <div className='Text-color'>
       {displayText}
     </div>
     <div className='Button-row'>
-      <button onClick={decrementCount} className="Button">SUB</button>
-      <button onClick={incrementCount} className="Button">ADD</button>
-
+      <button onClick={() => changeCount(-1)} className="Button" >SUB</button>
+      <button onClick={() => changeCount(1)} className="Button" >ADD</button>
     </div>
   </div>
 }
